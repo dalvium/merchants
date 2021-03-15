@@ -1,7 +1,14 @@
 <p id="notice"><%= notice %></p>
 
 <h1>Merchants</h1>
+<%= form_tag url_for(action: :index), { method: :get } do %>
+  <div class="field">
+    <%= label_tag 'Filter by name:' %>
+    <%= text_field_tag :name_filter %>
+    <%= submit_tag 'Filter' %>
+  </div>
 
+<% end %>
 <table>
   <thead>
     <tr>

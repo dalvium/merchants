@@ -26,6 +26,7 @@ gem 'country_select'
 gem 'devise'
 gem 'bootstrap', '~> 4.5.0'
 gem 'jquery-rails'
+gem 'pg_search', '~> 2.3', '>= 2.3.2'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'

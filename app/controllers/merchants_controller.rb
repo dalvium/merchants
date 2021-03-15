@@ -3,7 +3,11 @@ class MerchantsController < ApplicationController
 
   # GET /merchants or /merchants.json
   def index
-    @merchants = Merchant.all
+    unless params[:name_filter].blank?
+      @merchants = Merchant.search_name params[:name_filter]
+    else
+      @merchants = Merchant.all
+    end
   end
 
   # GET /merchants/1 or /merchants/1.json
