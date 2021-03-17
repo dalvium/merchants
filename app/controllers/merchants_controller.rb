@@ -34,15 +34,19 @@ class MerchantsController < ApplicationController
 
   # POST /merchants or /merchants.json
   def create
-    @merchant = Merchant.new(merchant_params)
-    respond_to do |format|
-      if @merchant.save
-        format.html { redirect_to @merchant, notice: "Merchant was successfully created." }
-        format.json { render :show, status: :created, location: @merchant }
-      else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @merchant.errors, status: :unprocessable_entity }
+    if current_merchant.role == 1
+      @merchant = Merchant.new(merchant_params)
+      respond_to do |format|
+        if @merchant.save
+          format.html { redirect_to @merchant, notice: "Merchant was successfully created." }
+          format.json { render :show, status: :created, location: @merchant }
+        else
+          format.html { render :new, status: :unprocessable_entity }
+          format.json { render json: @merchant.errors, status: :unprocessable_entity }
+        end
       end
+    else
+      redirect_to merchants_url, warning: "Don't have permissions"
     end
   end
 
