@@ -26,6 +26,8 @@ class MerchantsController < ApplicationController
   # POST /merchants or /merchants.json
   def create
     @merchant = Merchant.new(merchant_params)
+    @merchant.skip_password_validation = true
+    @merchant.save
 
     respond_to do |format|
       if @merchant.save

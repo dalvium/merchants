@@ -11,10 +11,13 @@
   </head>
 
   <body>
+  <br>
+  <div class="signed-as">
     <% if current_merchant %>
-      Signed in as <% current_merchant.email %>.
+      Signed in as: <%= current_merchant.email %>.
       <%= link_to 'Sign Out', destroy_merchant_session_path, :method => :delete  %>
-  <% end %>
+    <% end %>
+  </div>
     <%= yield %>
   </body>
 </html>

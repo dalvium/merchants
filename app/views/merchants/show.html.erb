@@ -1,34 +1,37 @@
-<p id="notice"><%= notice %></p>
+<div class="login-actions">
+  <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Email:</strong>
-  <%= @merchant.email %>
-</p>
+  <p>
+    <strong>Email:</strong>
+    <%= @merchant.email %>
+  </p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @merchant.name %>
-</p>
+  <p>
+    <strong>Name:</strong>
+    <%= @merchant.name %>
+  </p>
 
-<p>
-  <strong>City:</strong>
-  <%= @merchant.city %>
-</p>
+  <p>
+    <strong>City:</strong>
+    <%= @merchant.city %>
+  </p>
 
-<p>
-  <strong>Street:</strong>
-  <%= @merchant.street %>
-</p>
+  <p>
+    <strong>Street:</strong>
+    <%= @merchant.street %>
+  </p>
 
-<p>
-  <strong>Country code:</strong>
-  <%= @merchant.country_code %>
-</p>
+  <p>
+    <strong>Country code:</strong>
+    <%= @merchant.country_code %>
+  </p>
 
-<p>
-  <strong>Extra:</strong>
-  <%= @merchant.extra %>
-</p>
+  <p>
+    <strong>Extra:</strong>
+    <%= @merchant.extra %>
+  </p>
 
-<%= link_to 'Edit', edit_merchant_path(@merchant) %> |
-<%= link_to 'Back', merchants_path %>
+  <%= link_to 'Edit', edit_merchant_path(@merchant) %> |
+  <%= link_to 'Back', merchants_path %>
+
+</div>

@@ -14,3 +14,200 @@
  *= require_self
  */
 @import "bootstrap";
+
+html,
+body {
+  height: 100%;
+}
+
+.my-auto{
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+.login-container{
+  @extend .col-sm-12;
+  @extend .col-md-12;
+  @extend .col-lg-2;
+  @extend .col-xl-2;
+  @extend .offset-lg-5;
+  @extend .offset-xl-5;
+
+  & .field{
+    @extend .form-group;
+    @extend .col-12;
+    & [type="email"],[type="password"]{
+
+      @extend .form-control;
+      @extend .col-sm-12;
+
+    }
+    & label{
+    }
+
+  }
+  & a{
+    white-space: nowrap;
+  }
+}
+.signup-container{
+  @extend .col-sm-12;
+  @extend .col-md-12;
+  @extend .col-lg-2;
+  @extend .col-xl-2;
+  @extend .offset-lg-5;
+  @extend .offset-xl-5;
+
+  & .field{
+    @extend .form-group;
+    @extend .col-12;
+    & [type="email"],[type="password"]{
+
+      @extend .form-control;
+      @extend .col-sm-12;
+
+    }
+    & label{
+    }
+
+  }
+  & a{
+    white-space: nowrap;
+  }
+}
+.forgotpass-container{
+  @extend .col-sm-12;
+  @extend .col-md-12;
+  @extend .col-lg-2;
+  @extend .col-xl-2;
+  @extend .offset-lg-5;
+  @extend .offset-xl-5;
+
+  & .field{
+    @extend .form-group;
+    @extend .col-12;
+    & [type="email"],[type="password"]{
+
+      @extend .form-control;
+      @extend .col-sm-12;
+    }
+
+
+  }
+  & a{
+    white-space: nowrap;
+  }
+}
+
+.form-container{
+  & .field{
+    @extend .col-sm-12;
+    @extend .col-md-6;
+    @extend .col-lg-4;
+    @extend .col-xl-4;
+    @extend .form-group;
+    & input[type="text"],select{
+      @extend .form-control;
+    }
+    & label{
+    }
+    & .actions{
+
+    }
+
+  }
+}
+.login-title {
+  font-size: 30px;
+  color: #000;
+  font-weight: bold;
+  margin-bottom: 25px;
+  margin-left: 13px;
+  width: 450px;
+}
+.index-header{
+  font-size: 40px;
+  color: #000;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+.filter-field{
+  @extend .form-group;
+  & input[type="text"],select{
+    @extend .form-control;
+  }
+}
+.login-actions{
+  margin-left: 12px;
+}
+.filter-submit{
+  margin-left: 25px;
+}
+.table{
+  @extend .table-striped;
+  margin-top: 25px;
+}
+.filter-header{
+  margin-bottom: 15px;
+  margin-left: 10px;
+}
+.btn{
+  margin-left: 10px;
+}
+.create-merchant{
+  margin-left: 16px;
+}
+.update-merchant{
+  margin-top: 10px;
+  margin-left: 16px;
+}
+.signed-as{
+  margin-bottom: 10px;
+}
+.new-merchant{
+  margin-left: 16px
+}
+.sign-up{
+  margin-top: 10px;
+  margin-left: 16px
+}
+.back-link{
+  margin-left: 16px;
+  margin-top: 10px;
+}
+#notice {
+  color: green;
+}
+
+.field_with_errors {
+  padding: 2px;
+  background-color: red;
+  display: table;
+}
+
+#error_explanation {
+  width: 450px;
+  border: 2px solid red;
+  padding: 7px 7px 0;
+  margin-bottom: 20px;
+  background-color: #f0f0f0;
+}
+
+#error_explanation h2 {
+  text-align: left;
+  font-weight: bold;
+  padding: 5px 5px 5px 15px;
+  font-size: 12px;
+  margin: -7px -7px 0;
+  background-color: #c00;
+  color: #fff;
+}
+
+#error_explanation ul li {
+  font-size: 12px;
+  list-style: square;
+}
+
+label {
+  display: block;
+}

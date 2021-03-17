@@ -1,15 +1,17 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Merchants</h1>
-<%= form_tag url_for(action: :index), { method: :get } do %>
-  <div class="field">
-    <%= label_tag 'Filter by name:' %>
+<h1 class="index-header">Merchants</h1>
+<h6 class="filter-header">Filter by name</h6>
+<%= form_tag url_for(action: :index), method: :get, class: 'form-inline' do %>
+  <div class="filter-field">
     <%= text_field_tag :name_filter %>
-    <%= submit_tag 'Filter' %>
   </div>
-
+  <div>
+    <button type="submit" class="btn btn-primary">Filter</button>
+  </div>
+  <br>
 <% end %>
-<table>
+<table class="table">
   <thead>
     <tr>
       <th>Email</th>
@@ -17,7 +19,8 @@
       <th>City</th>
       <th>Street</th>
       <th>Country code</th>
-      <th>Extra</th>
+      <th>Phone number</th>
+      <th>Website</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -30,7 +33,8 @@
         <td><%= merchant.city %></td>
         <td><%= merchant.street %></td>
         <td><%= merchant.country_code %></td>
-        <td><%= merchant.extra %></td>
+        <td><%= merchant.phone_number %></td>
+        <td><%= merchant.website %></td>
         <td><%= link_to 'Show', merchant %></td>
         <td><%= link_to 'Edit', edit_merchant_path(merchant) %></td>
         <td><%= link_to 'Destroy', merchant, method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -41,4 +45,6 @@
 
 <br>
 
-<%= link_to 'New Merchant', new_merchant_path %>
+<div class="new-merchant">
+  <%= link_to 'New Merchant', new_merchant_path %>
+</div>
