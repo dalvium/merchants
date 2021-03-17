@@ -50,7 +50,7 @@ class MerchantsController < ApplicationController
   def update
     if current_merchant.role == 1
       respond_to do |format|
-        if @merchant.update(merchant_params)
+        if @merchant.update_without_password(merchant_params)
           format.html { redirect_to @merchant, notice: "Merchant was successfully updated." }
           format.json { render :show, status: :ok, location: @merchant }
         else
