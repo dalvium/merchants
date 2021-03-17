@@ -82,5 +82,5 @@ test:
 production:
   <<: *default
   database: merchantdb
-  username: vladimir
-  password: thepass
+  username:
+  password:
