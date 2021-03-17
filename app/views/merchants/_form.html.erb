@@ -1,54 +1,64 @@
 <div class="form-container">
-<%= form_with(model: merchant) do |form| %>
-  <% if merchant.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(merchant.errors.count, "error") %> prohibited this merchant from being saved:</h2>
+  <%= form_with(model: merchant) do |form| %>
+    <% if merchant.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(merchant.errors.count, "error") %> prohibited this merchant from being saved:</h2>
 
-      <ul>
-        <% merchant.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
+        <ul>
+          <% merchant.errors.each do |error| %>
+            <li><%= error.full_message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="field">
+      <%= form.label :email %>
+      <%= form.text_field :email %>
+    </div>
+
+    <div class="field">
+      <%= form.label :name %>
+      <%= form.text_field :name %>
+    </div>
+
+    <div class="field">
+      <%= form.label :password %>
+      <%= form.text_field :password %>
+    </div>
+
+    <div class="field">
+      <%= form.label :city %>
+      <%= form.text_field :city %>
+    </div>
+
+    <div class="field">
+      <%= form.label :street %>
+      <%= form.text_field :street %>
+    </div>
+
+    <div class="field">
+      <%= form.label :country_code %>
+      <%= form.country_select :country_code %>
+    </div>
+
+    <div class="field">
+      <%= form.label :role %>
+      <%= form.select :role, options_for_select([["Admin role", 1], [ "Viewer role", 0 ] ], merchant.role) %>
+    </div>
+
+    <div class="field">
+      <%= form.label :phone_number %>
+      <%= form.text_field :phone_number %>
+    </div>
+
+    <div class="field">
+      <%= form.label :website %>
+      <%= form.text_field :website %>
+    </div>
+
+    <div class="create-merchant">
+      <%= form.submit %>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= form.label :email %>
-    <%= form.text_field :email %>
-  </div>
-
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name %>
-  </div>
-
-  <div class="field">
-    <%= form.label :city %>
-    <%= form.text_field :city %>
-  </div>
-
-  <div class="field">
-    <%= form.label :street %>
-    <%= form.text_field :street %>
-  </div>
-
-  <div class="field">
-    <%= form.label :country_code %>
-    <%= form.country_select :country_code %>
-  </div>
-
-  <div class="field">
-    <%= form.label :phone_number %>
-    <%= form.text_field :phone_number %>
-  </div>
-
-  <div class="field">
-    <%= form.label :website %>
-    <%= form.text_field :website %>
-  </div>
-
-  <div class="create-merchant">
-    <%= form.submit %>
-  </div>
-<% end %>
 </div>

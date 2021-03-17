@@ -15,8 +15,7 @@
  */
 @import "bootstrap";
 
-html,
-body {
+html, body {
   height: 100%;
 }
 
@@ -50,62 +49,15 @@ body {
     white-space: nowrap;
   }
 }
-.signup-container{
-  @extend .col-sm-12;
-  @extend .col-md-12;
-  @extend .col-lg-2;
-  @extend .col-xl-2;
-  @extend .offset-lg-5;
-  @extend .offset-xl-5;
-
-  & .field{
-    @extend .form-group;
-    @extend .col-12;
-    & [type="email"],[type="password"]{
-
-      @extend .form-control;
-      @extend .col-sm-12;
-
-    }
-    & label{
-    }
-
-  }
-  & a{
-    white-space: nowrap;
-  }
-}
-.forgotpass-container{
-  @extend .col-sm-12;
-  @extend .col-md-12;
-  @extend .col-lg-2;
-  @extend .col-xl-2;
-  @extend .offset-lg-5;
-  @extend .offset-xl-5;
-
-  & .field{
-    @extend .form-group;
-    @extend .col-12;
-    & [type="email"],[type="password"]{
-
-      @extend .form-control;
-      @extend .col-sm-12;
-    }
-
-
-  }
-  & a{
-    white-space: nowrap;
-  }
-}
-
 .form-container{
+  padding: 5px;
   & .field{
     @extend .col-sm-12;
     @extend .col-md-6;
     @extend .col-lg-4;
     @extend .col-xl-4;
     @extend .form-group;
+
     & input[type="text"],select{
       @extend .form-control;
     }
@@ -133,10 +85,26 @@ body {
 }
 .filter-field{
   @extend .form-group;
+  @extend .col-sm-10;
+  @extend .col-md-6;
+  @extend .col-lg-8;
+  @extend .col-xl-4;
   & input[type="text"],select{
     @extend .form-control;
+    @extend .col-sm-12;
+    @extend .col-md-12;
+    @extend .col-lg-12;
+    @extend .col-xl-12;
   }
 }
+.button{
+  @extend .form-group;
+  @extend .col-sm-1;
+  @extend .col-md-6;
+  @extend .col-lg-4;
+  @extend .col-xl-6;
+}
+
 .login-actions{
   margin-left: 12px;
 }
@@ -151,15 +119,11 @@ body {
   margin-bottom: 15px;
   margin-left: 10px;
 }
-.btn{
-  margin-left: 10px;
-}
 .create-merchant{
   margin-left: 16px;
 }
-.update-merchant{
-  margin-top: 10px;
-  margin-left: 16px;
+.update-merchant {
+  padding: 15px;
 }
 .signed-as{
   margin-bottom: 10px;
@@ -174,9 +138,13 @@ body {
 .back-link{
   margin-left: 16px;
   margin-top: 10px;
+  padding-bottom: 15px;
 }
 #notice {
   color: green;
+}
+#warning {
+  color: #B00100;
 }
 
 .field_with_errors {

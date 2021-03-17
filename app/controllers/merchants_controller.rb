@@ -8,6 +8,7 @@ class MerchantsController < ApplicationController
     else
       @merchants = Merchant.all
     end
+    flash[:info] = "Signed in successfully."
   end
 
   # GET /merchants/1 or /merchants/1.json
@@ -16,19 +17,24 @@ class MerchantsController < ApplicationController
 
   # GET /merchants/new
   def new
-    @merchant = Merchant.new
+    if current_merchant.role != 1
+      redirect_to merchants_url, warning: "Don't have permissions"
+    else
+      @merchant = Merchant.new
+    end
+
   end
 
   # GET /merchants/1/edit
   def edit
+    if current_merchant.role != 1
+      redirect_to merchants_url, warning: "Don't have permissions"
+    end
   end
 
   # POST /merchants or /merchants.json
   def create
     @merchant = Merchant.new(merchant_params)
-    @merchant.skip_password_validation = true
-    @merchant.save
-
     respond_to do |format|
       if @merchant.save
         format.html { redirect_to @merchant, notice: "Merchant was successfully created." }
@@ -42,23 +48,31 @@ class MerchantsController < ApplicationController
 
   # PATCH/PUT /merchants/1 or /merchants/1.json
   def update
-    respond_to do |format|
-      if @merchant.update(merchant_params)
-        format.html { redirect_to @merchant, notice: "Merchant was successfully updated." }
-        format.json { render :show, status: :ok, location: @merchant }
-      else
-        format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @merchant.errors, status: :unprocessable_entity }
+    if current_merchant.role == 1
+      respond_to do |format|
+        if @merchant.update(merchant_params)
+          format.html { redirect_to @merchant, notice: "Merchant was successfully updated." }
+          format.json { render :show, status: :ok, location: @merchant }
+        else
+          format.html { render :edit, status: :unprocessable_entity }
+          format.json { render json: @merchant.errors, status: :unprocessable_entity }
+        end
       end
+    else
+      redirect_to merchants_url, warning: "Don't have permissions"
     end
   end
 
   # DELETE /merchants/1 or /merchants/1.json
   def destroy
-    @merchant.destroy
-    respond_to do |format|
-      format.html { redirect_to merchants_url, notice: "Merchant was successfully destroyed." }
-      format.json { head :no_content }
+    if current_merchant.role == 1
+      @merchant.destroy
+      respond_to do |format|
+        format.html { redirect_to merchants_url, notice: "Merchant was successfully destroyed." }
+        format.json { head :no_content }
+      end
+    else
+      redirect_to merchants_url, warning: "Don't have permissions"
     end
   end
 
@@ -70,6 +84,6 @@ class MerchantsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def merchant_params
-      params.require(:merchant).permit(:email, :name, :city, :street, :country_code, :extra, :phone_number, :website)
+      params.require(:merchant).permit(:email, :name, :city, :street, :country_code, :extra, :phone_number, :website, :role, :password)
     end
 end

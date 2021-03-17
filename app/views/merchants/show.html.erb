@@ -27,9 +27,15 @@
   </p>
 
   <p>
-    <strong>Extra:</strong>
-    <%= @merchant.extra %>
+    <strong>Phone number:</strong>
+    <%= @merchant.phone_number %>
   </p>
+
+  <p>
+    <strong>Website:</strong>
+    <%= @merchant.website %>
+  </p>
+
 
   <%= link_to 'Edit', edit_merchant_path(@merchant) %> |
   <%= link_to 'Back', merchants_path %>
